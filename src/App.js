@@ -1,7 +1,7 @@
 import './App.css'
-import '../BrowserHistory'
 import {Component} from 'react'
-import '../BrowserHistoryItems'
+import BrowserHistory from '../BrowserHistory'
+
 const initialHistoryList = [
   {
     id: 0,
@@ -77,44 +77,6 @@ const initialHistoryList = [
   },
 ]
 
-class BrowserHistory extends Component {
-  state = {searchIn: '', initialHistoryList: initialHistoryList}
-  onChangeValue = event => {
-    this.setState({searchIn: event.target.value})
-  }
-  onClickEle = id => {
-    const {initialHistoryList} = this.state
-    const filteredList = initialHistoryList.filter(each => each.id !== id)
-    this.setState({initialHistoryList: filteredList})
-  }
-  render() {
-    const {searchIn} = this.state
-    const {initialHistoryList} = this.state
-    const searchResults = initialHistoryList.filter(each =>
-      each.toLowerCase().includes(searchIn.toLowerCase()),
-    )
+const App = () => <BrowserHistory />
 
-    return (
-      <div>
-        <div>
-          <img src="https://assets.ccbp.in/frontend/react-js/history-website-logo-img.png" />
-          <div>
-            <img src="https://assets.ccbp.in/frontend/react-js/search-img.png" />
-            <input onChange={this.onChangeValue} />
-          </div>
-        </div>
-
-        <ul>
-          {searchResults.map(each => (
-            <BrowserHistoryItems
-              eachDetails={each}
-              key={each.id}
-              onClickEle={this.onClickEle}
-            />
-          ))}
-        </ul>
-      </div>
-    )
-  }
-}
-export default BrowserHistory
+export default App
