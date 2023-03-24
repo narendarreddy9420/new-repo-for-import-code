@@ -22,6 +22,7 @@ class BrowserHistory extends Component {
     const searchResults = initialHistoryList.filter(each =>
       each.toLowerCase().includes(searchIn.toLowerCase()),
     )
+    console.log("narendar")
 
     return (
       <div>
