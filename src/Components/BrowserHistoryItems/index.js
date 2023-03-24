@@ -1,4 +1,3 @@
-import './index.css'
 const BrowserHistoryItems = props => {
   const {eachDetails, onClickEle} = props
   const {id, timeAccessed, logoUrl, title, domainUrl} = eachDetails
